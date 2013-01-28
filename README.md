@@ -9,3 +9,9 @@ Go to project directory
 pod setup
 pod install
 ```
+
+
+###3. Start
+```
+open MusicAlbum.xcworkspace
+```
