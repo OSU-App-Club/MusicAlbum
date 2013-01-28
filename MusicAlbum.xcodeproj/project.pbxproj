@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3FF476D553E44809ACE71677 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B0550FDBE13436A90346F07 /* libPods.a */; };
+		7106AA2616B62D2E00576109 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7106AA2516B62D2E00576109 /* CFNetwork.framework */; };
+		7106AA2916B62D3600576109 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7106AA2816B62D3600576109 /* CoreData.framework */; };
+		7106AA2B16B62D3B00576109 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7106AA2A16B62D3B00576109 /* Security.framework */; };
+		7106AA2D16B62D4100576109 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7106AA2C16B62D4100576109 /* MobileCoreServices.framework */; };
+		71B3479616B618650013126B /* AlbumTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71B3479516B618650013126B /* AlbumTableViewController.m */; };
 		71FF0D4916B3862600DB584F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71FF0D4816B3862600DB584F /* UIKit.framework */; };
 		71FF0D4B16B3862600DB584F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71FF0D4A16B3862600DB584F /* Foundation.framework */; };
 		71FF0D4D16B3862600DB584F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71FF0D4C16B3862600DB584F /* CoreGraphics.framework */; };
@@ -37,6 +43,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		00E0197975574F6DBB27C959 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
+		1B0550FDBE13436A90346F07 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		7106AA2516B62D2E00576109 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		7106AA2816B62D3600576109 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		7106AA2A16B62D3B00576109 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		7106AA2C16B62D4100576109 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		71B3479416B618650013126B /* AlbumTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlbumTableViewController.h; sourceTree = "<group>"; };
+		71B3479516B618650013126B /* AlbumTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlbumTableViewController.m; sourceTree = "<group>"; };
 		71FF0D4416B3862600DB584F /* MusicAlbum.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MusicAlbum.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		71FF0D4816B3862600DB584F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		71FF0D4A16B3862600DB584F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -67,9 +81,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7106AA2D16B62D4100576109 /* MobileCoreServices.framework in Frameworks */,
+				7106AA2B16B62D3B00576109 /* Security.framework in Frameworks */,
+				7106AA2916B62D3600576109 /* CoreData.framework in Frameworks */,
+				7106AA2616B62D2E00576109 /* CFNetwork.framework in Frameworks */,
 				71FF0D4916B3862600DB584F /* UIKit.framework in Frameworks */,
 				71FF0D4B16B3862600DB584F /* Foundation.framework in Frameworks */,
 				71FF0D4D16B3862600DB584F /* CoreGraphics.framework in Frameworks */,
+				3FF476D553E44809ACE71677 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -89,10 +108,15 @@
 		71FF0D3916B3862600DB584F = {
 			isa = PBXGroup;
 			children = (
+				7106AA2C16B62D4100576109 /* MobileCoreServices.framework */,
+				7106AA2A16B62D3B00576109 /* Security.framework */,
+				7106AA2816B62D3600576109 /* CoreData.framework */,
+				7106AA2516B62D2E00576109 /* CFNetwork.framework */,
 				71FF0D4E16B3862600DB584F /* MusicAlbum */,
 				71FF0D7516B3862600DB584F /* MusicAlbumTests */,
 				71FF0D4716B3862600DB584F /* Frameworks */,
 				71FF0D4516B3862600DB584F /* Products */,
+				00E0197975574F6DBB27C959 /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -112,6 +136,7 @@
 				71FF0D4A16B3862600DB584F /* Foundation.framework */,
 				71FF0D4C16B3862600DB584F /* CoreGraphics.framework */,
 				71FF0D6F16B3862600DB584F /* SenTestingKit.framework */,
+				1B0550FDBE13436A90346F07 /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -119,13 +144,15 @@
 		71FF0D4E16B3862600DB584F /* MusicAlbum */ = {
 			isa = PBXGroup;
 			children = (
+				71FF0D4F16B3862600DB584F /* Supporting Files */,
 				71FF0D5716B3862600DB584F /* AppDelegate.h */,
 				71FF0D5816B3862600DB584F /* AppDelegate.m */,
 				71FF0D6016B3862600DB584F /* MainStoryboard_iPhone.storyboard */,
 				71FF0D6316B3862600DB584F /* MainStoryboard_iPad.storyboard */,
 				71FF0D6616B3862600DB584F /* ViewController.h */,
 				71FF0D6716B3862600DB584F /* ViewController.m */,
-				71FF0D4F16B3862600DB584F /* Supporting Files */,
+				71B3479416B618650013126B /* AlbumTableViewController.h */,
+				71B3479516B618650013126B /* AlbumTableViewController.m */,
 			);
 			path = MusicAlbum;
 			sourceTree = "<group>";
@@ -173,6 +200,7 @@
 				71FF0D4016B3862600DB584F /* Sources */,
 				71FF0D4116B3862600DB584F /* Frameworks */,
 				71FF0D4216B3862600DB584F /* Resources */,
+				7E6413C2F33E4C2D8D64108E /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -266,6 +294,20 @@
 			shellPath = /bin/sh;
 			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
 		};
+		7E6413C2F33E4C2D8D64108E /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -276,6 +318,7 @@
 				71FF0D5516B3862600DB584F /* main.m in Sources */,
 				71FF0D5916B3862600DB584F /* AppDelegate.m in Sources */,
 				71FF0D6816B3862600DB584F /* ViewController.m in Sources */,
+				71B3479616B618650013126B /* AlbumTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -387,10 +430,12 @@
 		};
 		71FF0D8116B3862600DB584F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 00E0197975574F6DBB27C959 /* Pods.xcconfig */;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MusicAlbum/MusicAlbum-Prefix.pch";
 				INFOPLIST_FILE = "MusicAlbum/MusicAlbum-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -398,10 +443,12 @@
 		};
 		71FF0D8216B3862600DB584F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 00E0197975574F6DBB27C959 /* Pods.xcconfig */;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MusicAlbum/MusicAlbum-Prefix.pch";
 				INFOPLIST_FILE = "MusicAlbum/MusicAlbum-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -460,6 +507,7 @@
 				71FF0D8216B3862600DB584F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		71FF0D8316B3862600DB584F /* Build configuration list for PBXNativeTarget "MusicAlbumTests" */ = {
 			isa = XCConfigurationList;
@@ -468,6 +516,7 @@
 				71FF0D8516B3862600DB584F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
