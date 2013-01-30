@@ -8,6 +8,7 @@
 
 #import "AlbumTableViewController.h"
 #import <RestKit/RestKit.h>
+#import "Label.h"
 
 @interface AlbumTableViewController ()
 
@@ -135,20 +136,35 @@
 
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
 {
-    NSURL *url = [NSURL URLWithString: [@"http://pitchfork.com/search/ac/?query=" stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
-    AFHTTPClient *client = [[AFHTTPClient alloc] initWithBaseURL:url];
-    NSString *params = [[NSString stringWithFormat:@"?query=\"%@\"", searchBar.text ] stringByAddingPercentEscapesUsingEncoding: NSUTF8StringEncoding];
-    [client setDefaultHeader:@"Accept" value:RKMIMETypeJSON];
-    RKObjectManager *objectManager = [[RKObjectManager alloc] initWithHTTPClient:client];
-    [objectManager getObjectsAtPath:params
-                         parameters:nil
-                            success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult){
-                                NSArray* statuses = [mappingResult array];
-                                NSLog(@"Loaded statuses: %@", statuses);
-                            }
-                            failure:^(RKObjectRequestOperation *operation, NSError *error) {
-                                NSLog(@"Loaded statuses: %@", error);
-                            }];
+    
+//    Restkit
+    RKDynamicMapping *mapping = [RKDynamicMapping new];
+    
+    RKObjectMapping *reviewMapping = [RKObjectMapping mappingForClass:[Label class] ];
+    [reviewMapping addAttributeMappingsFromDictionary:@{
+     @"label": @"label",
+     @"objects": @"objects"
+     }];
+    [mapping addMatcher:[RKObjectMappingMatcher matcherWithKeyPath:@"label" expectedValue:@"Reviews" objectMapping:reviewMapping]];
+    
+    NSIndexSet *statusCodes = RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful); // Anything in 2xx
+
+    
+    RKResponseDescriptor *responseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:mapping pathPattern:nil keyPath:nil statusCodes:statusCodes];
+
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:[[NSString stringWithFormat:@"%@\"%@\"", @"http://pitchfork.com/search/ac/?query=",searchBar.text] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]]];
+
+    RKObjectRequestOperation *operation = [[RKObjectRequestOperation alloc] initWithRequest:request responseDescriptors:@[responseDescriptor]];
+    [operation setCompletionBlockWithSuccess:^(RKObjectRequestOperation *operation, RKMappingResult *result) {
+        Label *label = [result firstObject];
+        NSLog(@"result:%@", result);
+        NSLog(@"Mapped the name: %@", [label.objects objectAtIndex:1]);
+    } failure:^(RKObjectRequestOperation *operation, NSError *error) {
+        NSLog(@"Failed with error: %@", [error localizedDescription]);
+    }];
+    
+    [operation start];
+
 }
 
 - (void)viewDidUnload {

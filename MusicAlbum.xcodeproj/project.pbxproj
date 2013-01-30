@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3FF476D553E44809ACE71677 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B0550FDBE13436A90346F07 /* libPods.a */; };
+		710443FC16B8C13D009488A9 /* Label.m in Sources */ = {isa = PBXBuildFile; fileRef = 710443FB16B8C13D009488A9 /* Label.m */; };
 		7106AA2616B62D2E00576109 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7106AA2516B62D2E00576109 /* CFNetwork.framework */; };
 		7106AA2916B62D3600576109 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7106AA2816B62D3600576109 /* CoreData.framework */; };
 		7106AA2B16B62D3B00576109 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7106AA2A16B62D3B00576109 /* Security.framework */; };
@@ -45,6 +46,8 @@
 /* Begin PBXFileReference section */
 		00E0197975574F6DBB27C959 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 		1B0550FDBE13436A90346F07 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		710443FA16B8C13D009488A9 /* Label.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Label.h; sourceTree = "<group>"; };
+		710443FB16B8C13D009488A9 /* Label.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Label.m; sourceTree = "<group>"; };
 		7106AA2516B62D2E00576109 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		7106AA2816B62D3600576109 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		7106AA2A16B62D3B00576109 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
@@ -155,6 +158,8 @@
 				71FF0D6716B3862600DB584F /* ViewController.m */,
 				71B3479416B618650013126B /* AlbumTableViewController.h */,
 				71B3479516B618650013126B /* AlbumTableViewController.m */,
+				710443FA16B8C13D009488A9 /* Label.h */,
+				710443FB16B8C13D009488A9 /* Label.m */,
 			);
 			path = MusicAlbum;
 			sourceTree = "<group>";
@@ -321,6 +326,7 @@
 				71FF0D5916B3862600DB584F /* AppDelegate.m in Sources */,
 				71FF0D6816B3862600DB584F /* ViewController.m in Sources */,
 				71B3479616B618650013126B /* AlbumTableViewController.m in Sources */,
+				710443FC16B8C13D009488A9 /* Label.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
