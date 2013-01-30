@@ -7,7 +7,7 @@
 //
 
 #import "AlbumTableViewController.h"
-#import "AFJSONRequestOperation.h"
+#import <RestKit/RestKit.h>
 
 @interface AlbumTableViewController ()
 
@@ -135,7 +135,20 @@
 
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
 {
-
+    NSURL *url = [NSURL URLWithString: [@"http://pitchfork.com/search/ac/?query=" stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+    AFHTTPClient *client = [[AFHTTPClient alloc] initWithBaseURL:url];
+    NSString *params = [[NSString stringWithFormat:@"?query=\"%@\"", searchBar.text ] stringByAddingPercentEscapesUsingEncoding: NSUTF8StringEncoding];
+    [client setDefaultHeader:@"Accept" value:RKMIMETypeJSON];
+    RKObjectManager *objectManager = [[RKObjectManager alloc] initWithHTTPClient:client];
+    [objectManager getObjectsAtPath:params
+                         parameters:nil
+                            success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult){
+                                NSArray* statuses = [mappingResult array];
+                                NSLog(@"Loaded statuses: %@", statuses);
+                            }
+                            failure:^(RKObjectRequestOperation *operation, NSError *error) {
+                                NSLog(@"Loaded statuses: %@", error);
+                            }];
 }
 
 - (void)viewDidUnload {

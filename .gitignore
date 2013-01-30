@@ -1,4 +1,6 @@
 Podfile.lock
 Pods/*
-
+*.pbxproj
+MusicAlbum.xcodeproj*/
+MusicAlbum.xcodeproj/project.xcworkspace/xcuserdata/icharlie.xcuserdatad/UserInterfaceState.xcuserstate
 MusicAlbum.xcworkspace
