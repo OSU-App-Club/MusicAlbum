@@ -9,6 +9,7 @@
 #import "AlbumTableViewController.h"
 #import <RestKit/RestKit.h>
 #import "Label.h"
+#import "Review.h"
 
 @interface AlbumTableViewController ()
 
@@ -18,6 +19,7 @@
 @implementation AlbumTableViewController
 
 @synthesize searchBar = _searchBar;
+@synthesize reviews;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -49,24 +51,23 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 0;
+    NSLog(@"reviews:%d", [reviews count]);
+    return [reviews count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    NSLog(@"reload");
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     // Configure the cell...
+    cell.textLabel.text = [[reviews objectAtIndex:indexPath.row] name];
     
     return cell;
 }
@@ -126,44 +127,54 @@
 
 #pragma mark - TODO
 
-/*
--(void)searchBar:(UISearchBar*)searchBar textDidChange:(NSString*)text
-{
-       NSLog(@"%@", text);
-}
-*/
-
-
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
 {
     
 //    Restkit
     RKDynamicMapping *mapping = [RKDynamicMapping new];
     
-    RKObjectMapping *reviewMapping = [RKObjectMapping mappingForClass:[Label class] ];
-    [reviewMapping addAttributeMappingsFromDictionary:@{
+    RKObjectMapping *reviewLabelMapping = [RKObjectMapping mappingForClass:[Label class] ];
+    [reviewLabelMapping addAttributeMappingsFromDictionary:@{
      @"label": @"label",
-     @"objects": @"objects"
      }];
-    [mapping addMatcher:[RKObjectMappingMatcher matcherWithKeyPath:@"label" expectedValue:@"Reviews" objectMapping:reviewMapping]];
+
     
+    RKObjectMapping *reviewMapping = [RKObjectMapping mappingForClass:[Review class]];
+    [reviewMapping addAttributeMappingsFromDictionary:@{
+     @"name": @"name",
+     @"url" : @"url"
+     }];
+    
+    RKRelationshipMapping *reviewRelationship = [RKRelationshipMapping relationshipMappingFromKeyPath:@"objects" toKeyPath:@"objects" withMapping:reviewMapping];
+    
+    [reviewLabelMapping addPropertyMapping:reviewRelationship];
+    
+    [mapping addMatcher:[RKObjectMappingMatcher matcherWithKeyPath:@"label" expectedValue:@"Reviews" objectMapping:reviewLabelMapping]];
+    
+//    [mapping ];
+    
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:[[NSString stringWithFormat:@"%@\"%@\"", @"http://pitchfork.com/search/ac/?query=",searchBar.text] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]]];
+    
+//    reviewMapping mapk
     NSIndexSet *statusCodes = RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful); // Anything in 2xx
 
     
     RKResponseDescriptor *responseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:mapping pathPattern:nil keyPath:nil statusCodes:statusCodes];
 
-    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:[[NSString stringWithFormat:@"%@\"%@\"", @"http://pitchfork.com/search/ac/?query=",searchBar.text] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]]];
 
     RKObjectRequestOperation *operation = [[RKObjectRequestOperation alloc] initWithRequest:request responseDescriptors:@[responseDescriptor]];
+    
     [operation setCompletionBlockWithSuccess:^(RKObjectRequestOperation *operation, RKMappingResult *result) {
         Label *label = [result firstObject];
-        NSLog(@"result:%@", result);
-        NSLog(@"Mapped the name: %@", [label.objects objectAtIndex:1]);
+        reviews = label.objects;
+        [self.tableView reloadData];
+        [searchBar resignFirstResponder];
     } failure:^(RKObjectRequestOperation *operation, NSError *error) {
         NSLog(@"Failed with error: %@", [error localizedDescription]);
     }];
     
     [operation start];
+   
 
 }
 

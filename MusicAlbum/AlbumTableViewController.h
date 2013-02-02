@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AlbumTableViewController : UITableViewController<UISearchBarDelegate>
-@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
-
+@interface AlbumTableViewController : UITableViewController<UISearchBarDelegate, UITableViewDataSource, UITableViewDelegate>
+@property (strong, nonatomic) IBOutlet UISearchBar *searchBar;
+@property (strong, nonatomic) NSMutableArray *reviews;
 @end

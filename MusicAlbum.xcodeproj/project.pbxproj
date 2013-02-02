@@ -13,6 +13,7 @@
 		7106AA2916B62D3600576109 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7106AA2816B62D3600576109 /* CoreData.framework */; };
 		7106AA2B16B62D3B00576109 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7106AA2A16B62D3B00576109 /* Security.framework */; };
 		7106AA2D16B62D4100576109 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7106AA2C16B62D4100576109 /* MobileCoreServices.framework */; };
+		714FB6D016BCABA500808386 /* Review.m in Sources */ = {isa = PBXBuildFile; fileRef = 714FB6CF16BCABA500808386 /* Review.m */; };
 		71B3479616B618650013126B /* AlbumTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71B3479516B618650013126B /* AlbumTableViewController.m */; };
 		71FF0D4916B3862600DB584F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71FF0D4816B3862600DB584F /* UIKit.framework */; };
 		71FF0D4B16B3862600DB584F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71FF0D4A16B3862600DB584F /* Foundation.framework */; };
@@ -52,6 +53,8 @@
 		7106AA2816B62D3600576109 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		7106AA2A16B62D3B00576109 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		7106AA2C16B62D4100576109 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		714FB6CE16BCABA500808386 /* Review.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Review.h; sourceTree = "<group>"; };
+		714FB6CF16BCABA500808386 /* Review.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Review.m; sourceTree = "<group>"; };
 		71A2B4DC16B857CD002D31AB /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		71B3479416B618650013126B /* AlbumTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlbumTableViewController.h; sourceTree = "<group>"; };
 		71B3479516B618650013126B /* AlbumTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlbumTableViewController.m; sourceTree = "<group>"; };
@@ -160,6 +163,8 @@
 				71B3479516B618650013126B /* AlbumTableViewController.m */,
 				710443FA16B8C13D009488A9 /* Label.h */,
 				710443FB16B8C13D009488A9 /* Label.m */,
+				714FB6CE16BCABA500808386 /* Review.h */,
+				714FB6CF16BCABA500808386 /* Review.m */,
 			);
 			path = MusicAlbum;
 			sourceTree = "<group>";
@@ -327,6 +332,7 @@
 				71FF0D6816B3862600DB584F /* ViewController.m in Sources */,
 				71B3479616B618650013126B /* AlbumTableViewController.m in Sources */,
 				710443FC16B8C13D009488A9 /* Label.m in Sources */,
+				714FB6D016BCABA500808386 /* Review.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
