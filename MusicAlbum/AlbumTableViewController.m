@@ -7,6 +7,7 @@
 //
 
 #import "AlbumTableViewController.h"
+#import "AlbumReviewDetailViewController.h"
 #import <RestKit/RestKit.h>
 #import "Label.h"
 #import "Review.h"
@@ -115,13 +116,12 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
+
+    AlbumReviewDetailViewController *detailViewController = [[AlbumReviewDetailViewController alloc] init];
+    
+    [detailViewController setReview:[reviews objectAtIndex:indexPath.row]];
      [self.navigationController pushViewController:detailViewController animated:YES];
-     */
+
 }
 
 
@@ -150,9 +150,7 @@
     [reviewLabelMapping addPropertyMapping:reviewRelationship];
     
     [mapping addMatcher:[RKObjectMappingMatcher matcherWithKeyPath:@"label" expectedValue:@"Reviews" objectMapping:reviewLabelMapping]];
-    
-//    [mapping ];
-    
+        
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:[[NSString stringWithFormat:@"%@\"%@\"", @"http://pitchfork.com/search/ac/?query=",searchBar.text] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]]];
     
 //    reviewMapping mapk
